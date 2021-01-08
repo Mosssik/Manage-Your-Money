@@ -34,36 +34,35 @@ const styles = {
 };
 const imageTrash = "https://s.svgbox.net/hero-outline.svg?ic=trash&fill=000000";
 
-/*function deleteLine(){
-  return 
-}*/
-
-function Table() {
-  return (
-    <div style={styles.div}>
-      <table style={styles.table}>
-        <thead>
-          <tr style={styles.tr}>
-            <td style={styles.tdHead}>Доход/расход</td>
-            <td style={styles.tdHead}>Категория</td>
-            <td style={styles.tdHead}>Сумма</td>
-          </tr>
-        </thead>
-        <tfoot className="table">
-          <tr style={styles.tr}>
-            <td style={styles.tdFoot}>number1</td>
-            <td style={styles.tdFoot}>number2</td>
-            <td style={styles.tdFoot}>number3</td>
-            <td>
-              <button style={styles.button}>
-                <img src={imageTrash} style={styles.img} alt="trash" />
-              </button>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-  );
+export default class Table extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div style={styles.div}>
+        <table style={styles.table}>
+          <thead>
+            <tr style={styles.tr}>
+              <td style={styles.tdHead}>Доход/расход</td>
+              <td style={styles.tdHead}>Категория</td>
+              <td style={styles.tdHead}>Сумма</td>
+            </tr>
+          </thead>
+          <tfoot className="table">
+            <tr style={styles.tr}>
+              <td style={styles.tdFoot}>number1</td>
+              <td style={styles.tdFoot}>number2</td>
+              <td style={styles.tdFoot}>number3</td>
+              <td>
+                <button style={styles.button}>
+                  <img src={imageTrash} style={styles.img} alt="trash" />
+                </button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    );
+  }
 }
-
-export { Table };

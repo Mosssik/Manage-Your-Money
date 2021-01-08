@@ -12,14 +12,19 @@ const styles = {
   }
 };
 
-export default function SearchPosition() {
-  return (
-    <div style={styles.div}>
-      <input
-        type="text"
-        style={styles.input}
-        placeholder="search by position"
-      />
-    </div>
-  );
+export default class SearchPosition extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div style={styles.div}>
+        <input
+          type="text"
+          style={styles.input}
+          placeholder="search by position"
+        />
+      </div>
+    );
+  }
 }

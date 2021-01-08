@@ -16,11 +16,16 @@ const styles = {
   }
 };
 
-export default function FinalChanges() {
-  return (
-    <div style={styles.div}>
-      <span style={styles.span}>Итого приход</span>
-      <span style={styles.span}>Итого расход</span>
-    </div>
-  );
+export default class FinalChanges extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div style={styles.div}>
+        <span style={styles.span}>Итого приход</span>
+        <span style={styles.span}>Итого расход</span>
+      </div>
+    );
+  }
 }

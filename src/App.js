@@ -4,12 +4,17 @@ import FinalChanges from "./FinalChanges";
 import SearchPosition from "./SearchPosition";
 import WorkSpace from "./WorkSpace";
 
-export default function App(props) {
-  return (
-    <div className="App">
-      <FinalChanges />
-      <SearchPosition />
-      <WorkSpace />
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="App">
+        <FinalChanges />
+        <SearchPosition />
+        <WorkSpace />
+      </div>
+    );
+  }
 }
