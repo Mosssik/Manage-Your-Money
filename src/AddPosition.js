@@ -27,6 +27,8 @@ export default class AddPosition extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  addPoint() {}
   render() {
     return (
       <div style={styles.div}>

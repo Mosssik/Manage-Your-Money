@@ -37,7 +37,12 @@ const imageTrash = "https://s.svgbox.net/hero-outline.svg?ic=trash&fill=000000";
 export default class Table extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      points: []
+    };
   }
+  deletePoint() {}
+
   render() {
     return (
       <div style={styles.div}>
