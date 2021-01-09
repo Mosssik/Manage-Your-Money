@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import FinalChanges from "./FinalChanges";
 import SearchPosition from "./SearchPosition";
-import WorkSpace from "./WorkSpace";
+import { Table } from "./Table";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class App extends React.Component {
       <div className="App">
         <FinalChanges />
         <SearchPosition />
-        <WorkSpace />
+        <Table />
       </div>
     );
   }
