@@ -1,4 +1,5 @@
 import React from "react";
+import { Point } from "./Point";
 const styles = {
   div: {
     width: "200px"
@@ -68,22 +69,9 @@ class Table extends React.Component {
   }
 
   addPoint = () => {
-    const point = (
-      <tr style={styles.tr} key={id++}>
-        <td style={styles.tdFoot}>{document.querySelector(".select").value}</td>
-        <td style={styles.tdFoot}>
-          {document.querySelector(".category").value}
-        </td>
-        <td style={styles.tdFoot}>{document.querySelector(".summ").value}</td>
-        <td>
-          <button style={styles.buttonTab} className="trash" key={id++}>
-            <img src={imageTrash} style={styles.img} alt="trash" />
-          </button>
-        </td>
-      </tr>
-    );
-    positions.push(point);
+    positions.push(<Point key={id++} />);
     this.setState({ points: positions });
+    console.log(positions[0]);
   };
 
   deletePoint() {}
@@ -131,4 +119,4 @@ class Table extends React.Component {
   }
 }
 
-export { imageTrash, Table };
+export { imageTrash, Table, styles };
