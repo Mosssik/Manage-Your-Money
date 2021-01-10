@@ -56,30 +56,34 @@ const styles = {
 };
 
 const imageTrash = "https://s.svgbox.net/hero-outline.svg?ic=trash&fill=000000";
+let positions = [];
+let id = 0;
 
 class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      points: []
+      points: positions
     };
   }
 
   addPoint = () => {
-    const element = (
-      <tr style={styles.tr}>
-        <td style={styles.tdFoot}>State of category</td>
-        <td style={styles.tdFoot}>Category</td>
-        <td style={styles.tdFoot}>Amount</td>
+    const point = (
+      <tr style={styles.tr} key={id++}>
+        <td style={styles.tdFoot}>{document.querySelector(".select").value}</td>
+        <td style={styles.tdFoot}>
+          {document.querySelector(".category").value}
+        </td>
+        <td style={styles.tdFoot}>{document.querySelector(".summ").value}</td>
         <td>
-          <button style={styles.buttonTab}>
+          <button style={styles.buttonTab} className="trash" key={id++}>
             <img src={imageTrash} style={styles.img} alt="trash" />
           </button>
         </td>
       </tr>
     );
-    this.setState(({ points }) => points.push(element));
-    console.log(this.state.points);
+    positions.push(point);
+    this.setState({ points: positions });
   };
 
   deletePoint() {}
@@ -88,7 +92,7 @@ class Table extends React.Component {
     return (
       <div style={styles.divWrap}>
         <div style={styles.div}>
-          <select style={styles.select}>
+          <select style={styles.select} className="select">
             <option>Доходы</option>
             <option>Расходы</option>
           </select>
@@ -96,8 +100,14 @@ class Table extends React.Component {
             type="text"
             style={styles.input}
             placeholder="Категория дохода/расхода"
+            className="category"
           />
-          <input type="text" style={styles.input} placeholder="Сумма" />
+          <input
+            type="number"
+            style={styles.input}
+            placeholder="Сумма"
+            className="summ"
+          />
           <button style={styles.button} onClick={this.addPoint}>
             Add position
           </button>
@@ -112,7 +122,7 @@ class Table extends React.Component {
               </tr>
             </thead>
             <tfoot className="table" key={this.state.points.id}>
-              {this.state.points}
+              {positions}
             </tfoot>
           </table>
         </div>
