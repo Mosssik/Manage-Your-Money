@@ -57,26 +57,28 @@ const styles = {
 };
 
 const imageTrash = "https://s.svgbox.net/hero-outline.svg?ic=trash&fill=000000";
-let positions = [];
-let id = 0;
 
 class Table extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      points: positions
-    };
+    this.state = {};
   }
 
-  addPoint = () => {
-    positions.push(<Point key={id++} />);
-    this.setState({ points: positions });
-    console.log(positions[0]);
-  };
-
-  deletePoint() {}
-
   render() {
+    const { items, onAdd, onDelete } = this.props;
+
+    const elements = items.map((item) => {
+      return (
+        <Point
+          key={item.id}
+          onDelete={() => onDelete(item.id)}
+          label={item.label}
+          sum={item.sum}
+          select={item.select}
+        />
+      );
+    });
+
     return (
       <div style={styles.divWrap}>
         <div style={styles.div}>
@@ -96,7 +98,7 @@ class Table extends React.Component {
             placeholder="Сумма"
             className="summ"
           />
-          <button style={styles.button} onClick={this.addPoint}>
+          <button style={styles.button} onClick={onAdd}>
             Add position
           </button>
         </div>
@@ -109,9 +111,7 @@ class Table extends React.Component {
                 <td style={styles.tdHead}>Сумма</td>
               </tr>
             </thead>
-            <tfoot className="table" key={this.state.points.id}>
-              {positions}
-            </tfoot>
+            <tfoot className="table">{elements}</tfoot>
           </table>
         </div>
       </div>
